@@ -4,6 +4,9 @@
 package frc.kitbot;
 
 import org.junit.jupiter.api.Test;
+
+import frc.robot.App;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
