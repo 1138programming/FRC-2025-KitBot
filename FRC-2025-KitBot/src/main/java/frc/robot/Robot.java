@@ -8,15 +8,15 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import frc.robot.Constants.AutonomousConstants;
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in
  * the TimedRobot documentation. If you change the name of this class or the package after creating
  * this project, you must also update the Main.java file in the project.
  */
 public class Robot extends TimedRobot {
-  private static final String kDefaultAuto = "Default";
-  private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
+
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
   /**
@@ -24,8 +24,8 @@ public class Robot extends TimedRobot {
    * initialization code.
    */
   public Robot() {
-    m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
-    m_chooser.addOption("My Auto", kCustomAuto);
+    m_chooser.setDefaultOption("Default Auto", AutonomousConstants.KDEFAULT_AUTONOMOUS);
+    m_chooser.addOption("My Auto", AutonomousConstants.KCUSTOM_AUTONMOUS);
     SmartDashboard.putData("Auto choices", m_chooser);
   }
 
@@ -52,18 +52,21 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     m_autoSelected = m_chooser.getSelected();
-    // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
     System.out.println("Auto selected: " + m_autoSelected);
   }
 
-  /** This function is called periodically during autonomous. */
+  /** This function is called periodically during autonomous. 
+   * Not the instructions of an auto but what runs during it.
+   * For example, direction diagnostics
+  */
+
   @Override
   public void autonomousPeriodic() {
     switch (m_autoSelected) {
-      case kCustomAuto:
+      case AutonomousConstants.KCUSTOM_AUTONMOUS:
         // Put custom auto code here
         break;
-      case kDefaultAuto:
+      case AutonomousConstants.KDEFAULT_AUTONOMOUS:
       default:
         // Put default auto code here
         break;
