@@ -1,6 +1,7 @@
 package frc.robot;
 
 public class Constants {
+<<<<<<< HEAD
     public static final class DriveConstants {
         public static final int KLEFT_LEADER_ID = 1;
         public static final int KLEFT_FOLLOWER_ID = 2;
@@ -21,4 +22,14 @@ public class Constants {
         public static final int KDRIVER_CONTROLLER_PORT = 0;
         public static final int KOPERATOR_CONTROLLER_PORT = 1;
       }
+=======
+    public static final class CoralReleaseConstants 
+    {
+        public static final int KRollerMotorID = 1; //ID
+        public static final int KRollerMotorLimit = 80; //So it won't over heat
+        public static final double KRollerMotorVoltage = 50; // In sync with battery
+        
+        //All random numbers!
+    }
+>>>>>>> 6cb6ccf931f2f002b0b93c986ac3c283597c95b5
 }
